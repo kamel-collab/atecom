@@ -14,29 +14,33 @@ class Home extends StatelessWidget {
           HomeAppBar(),
         ],
       ),
-      bottomNavigationBar: CurvedNavigationBar(
-        onTap: (index) {},
-        backgroundColor: Colors.transparent,
-        color: const Color(0xFF4C53A5),
-        height: 70,
-        items: [
-          Icon(
-            Icons.home,
-            size: 30,
-            color: Colors.white,
-          ),
-          Icon(
-            CupertinoIcons.cart_fill,
-            size: 30,
-            color: Colors.white,
-          ),
-          Icon(
-            Icons.list,
-            size: 30,
-            color: Colors.white,
-          ),
-        ],
-      ),
+      bottomNavigationBar: navigationBar(),
+    );
+  }
+
+  CurvedNavigationBar navigationBar() {
+    return CurvedNavigationBar(
+      onTap: (index) {},
+      backgroundColor: Colors.transparent,
+      color: const Color(0xFF4C53A5),
+      height: 70,
+      items: [
+        Icon(
+          Icons.home,
+          size: 30,
+          color: Colors.white,
+        ),
+        Icon(
+          CupertinoIcons.cart_fill,
+          size: 30,
+          color: Colors.white,
+        ),
+        Icon(
+          Icons.list,
+          size: 30,
+          color: Colors.white,
+        ),
+      ],
     );
   }
 }
