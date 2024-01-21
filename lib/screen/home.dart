@@ -12,6 +12,22 @@ class Home extends StatelessWidget {
       body: Column(
         children: [
           HomeAppBar(),
+          Expanded(
+            child: ListView(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color(0xFFEDECF2),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(35),
+                      topRight: Radius.circular(35),
+                    ),
+                  ),
+                  child: Text('ok'),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
       bottomNavigationBar: navigationBar(),
