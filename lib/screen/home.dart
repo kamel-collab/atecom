@@ -5,8 +5,113 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
-  const Home({super.key});
-
+  Home({super.key});
+  List products = [
+    {
+      "marque": "D-LINK",
+      "modele": "COVR-1103",
+      "caract": [
+        "Application : D-Link Wi-Fi App (iOS et androide)",
+        "Wi-Fi Dual Band : 2.4 GHz Jusqu'à 300 Mbps/5 GHz Jusqu'à 866 Mbps",
+        "contrôle parental : Créer des horaires d'accès, bloquer des appareils",
+        "Commande vocale : Google/Alexa",
+        "Securité Wi-Fi : WPA3 un cryptage à 128 bits"
+      ],
+      "prix": "17 500,00",
+      "image": "assets/images/covr-1103.jpg"
+    },
+    {
+      "marque": "D-LINK",
+      "modele": "DSL-X1852E",
+      "caract": [
+        "Application : D-Link Wi-Fi App (iOS et androide)",
+        "Wi-Fi Dual Band : 2.4 GHz Jusqu'à 300 Mbps/5 GHz Jusqu'à 866 Mbps",
+        "contrôle parental : Créer des horaires d'accès, bloquer des appareils",
+        "Commande vocale : Google/Alexa",
+        "Securité Wi-Fi : WPA3 un cryptage à 128 bits"
+      ],
+      "prix": "19 800,00",
+      "image": "assets/images/dsl-x1852e.jpg"
+    },
+    {
+      "marque": "D-LINK",
+      "modele": "DIR-X5460",
+      "caract": [
+        "Application : D-Link Wi-Fi App (iOS et androide)",
+        "Wi-Fi Dual Band : 2.4 GHz Jusqu'à 300 Mbps/5 GHz Jusqu'à 866 Mbps",
+        "contrôle parental : Créer des horaires d'accès, bloquer des appareils",
+        "Commande vocale : Google/Alexa",
+        "Securité Wi-Fi : WPA3 un cryptage à 128 bits"
+      ],
+      "prix": "22 500,00",
+      "image": "assets/images/dir-x5460.jpg"
+    },
+    {
+      "marque": "D-LINK",
+      "modele": "DIR-3040",
+      "caract": [
+        "Application : D-Link Wi-Fi App (iOS et androide)",
+        "Wi-Fi Dual Band : 2.4 GHz Jusqu'à 300 Mbps/5 GHz Jusqu'à 866 Mbps",
+        "contrôle parental : Créer des horaires d'accès, bloquer des appareils",
+        "Commande vocale : Google/Alexa",
+        "Securité Wi-Fi : WPA3 un cryptage à 128 bits"
+      ],
+      "prix": "12 200,00",
+      "image": "assets/images/dir-3040.jpg"
+    },
+    {
+      "marque": "D-LINK",
+      "modele": "4G LTE M920",
+      "caract": [
+        "Application : D-Link Wi-Fi App (iOS et androide)",
+        "Wi-Fi Dual Band : 2.4 GHz Jusqu'à 300 Mbps/5 GHz Jusqu'à 866 Mbps",
+        "contrôle parental : Créer des horaires d'accès, bloquer des appareils",
+        "Commande vocale : Google/Alexa",
+        "Securité Wi-Fi : WPA3 un cryptage à 128 bits"
+      ],
+      "prix": "11 200,00",
+      "image": "assets/images/4gltem920.jpeg"
+    },
+    {
+      "marque": "D-LINK",
+      "modele": "DSL-2750",
+      "caract": [
+        "Application : D-Link Wi-Fi App (iOS et androide)",
+        "Wi-Fi Dual Band : 2.4 GHz Jusqu'à 300 Mbps/5 GHz Jusqu'à 866 Mbps",
+        "contrôle parental : Créer des horaires d'accès, bloquer des appareils",
+        "Commande vocale : Google/Alexa",
+        "Securité Wi-Fi : WPA3 un cryptage à 128 bits"
+      ],
+      "prix": "5 130,00",
+      "image": "assets/images/dsl-2750.jpg"
+    },
+    {
+      "marque": "D-LINK",
+      "modele": "DSL-124",
+      "caract": [
+        "Application : D-Link Wi-Fi App (iOS et androide)",
+        "Wi-Fi Dual Band : 2.4 GHz Jusqu'à 300 Mbps/5 GHz Jusqu'à 866 Mbps",
+        "contrôle parental : Créer des horaires d'accès, bloquer des appareils",
+        "Commande vocale : Google/Alexa",
+        "Securité Wi-Fi : WPA3 un cryptage à 128 bits"
+      ],
+      "prix": "4 560,00",
+      "image": "assets/images/dsl-124.jpg"
+    },
+    {
+      "marque": "D-LINK",
+      "modele": "DSL-224",
+      "caract": [
+        "Application : D-Link Wi-Fi App (iOS et androide)",
+        "Wi-Fi Dual Band : 2.4 GHz Jusqu'à 300 Mbps/5 GHz Jusqu'à 866 Mbps",
+        "contrôle parental : Créer des horaires d'accès, bloquer des appareils",
+        "Commande vocale : Google/Alexa",
+        "Securité Wi-Fi : WPA3 un cryptage à 128 bits"
+      ],
+      "prix": "6 100,00",
+      "image": "assets/images/dsl-224.jpg"
+    },
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
