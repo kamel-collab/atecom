@@ -1,11 +1,19 @@
 import 'package:atc/widgets/categories.dart';
 import 'package:atc/widgets/home_app_bar.dart';
+import 'package:atc/widgets/products.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
   List products = [
     {
       "marque": "D-LINK",
@@ -181,6 +189,7 @@ class Home extends StatelessWidget {
                               ),
                             ),
                           ),
+                          Products(products: products),
                         ],
                       ),
                     ),
@@ -201,7 +210,7 @@ class Home extends StatelessWidget {
       backgroundColor: Colors.transparent,
       color: const Color(0xFF4C53A5),
       height: 70,
-      items: [
+      items: const [
         Icon(
           Icons.home,
           size: 30,
