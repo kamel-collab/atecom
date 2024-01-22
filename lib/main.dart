@@ -1,3 +1,4 @@
+import 'package:atc/screen/cart_screen.dart';
 import 'package:atc/screen/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         "/": (context) => Home(),
+        "cartScreen": (context) => CartScreen(),
       },
     );
   }
