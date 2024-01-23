@@ -15,7 +15,7 @@ class _ProductsState extends State<Products> {
     return GridView.builder(
       gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
         maxCrossAxisExtent: 200,
-        childAspectRatio: 0.65,
+        childAspectRatio: 0.55,
         crossAxisSpacing: 10,
         mainAxisSpacing: 10,
       ),
@@ -76,7 +76,7 @@ class _ProductsState extends State<Products> {
             },
             child: Container(
               margin: const EdgeInsets.all(10),
-              child: Image.asset(widget.products[index]["image"]),
+              child: Image.network(widget.products[index].images[0]['src']),
               height: 120,
               width: 120,
             ),
@@ -85,7 +85,7 @@ class _ProductsState extends State<Products> {
             padding: const EdgeInsets.only(bottom: 8),
             alignment: Alignment.centerLeft,
             child: Text(
-              widget.products[index]["marque"],
+              widget.products[index].name,
               style: TextStyle(
                 fontSize: 18,
                 color: Color(0xFF4C53A5),
@@ -97,7 +97,7 @@ class _ProductsState extends State<Products> {
             padding: const EdgeInsets.only(bottom: 8),
             alignment: Alignment.centerLeft,
             child: Text(
-              widget.products[index]["modele"],
+              widget.products[index].name,
               style: TextStyle(
                 fontSize: 15,
                 color: Color(0xFF4C53A5),
@@ -110,7 +110,7 @@ class _ProductsState extends State<Products> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  widget.products[index]["prix"] + " DA",
+                  widget.products[index].price + " DA",
                   style: TextStyle(
                     fontSize: 16,
                     color: Color(0xFF4C53A5),
