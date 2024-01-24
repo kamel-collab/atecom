@@ -9,7 +9,7 @@ class ProductsProvider {
 // depuis un api en utilsant http
 //"bahmedkamel.com", 'wp-json/wc/v3/products'
   static const String token =
-      "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDYwOTQ0NDksImV4cCI6MTcwNjA5ODA0OSwiZW1haWwiOiJhZG1pbkBiYWhtZWRrYW1lbC5jb20iLCJpZCI6IjEiLCJzaXRlIjoiaHR0cHM6XC9cL3d3dy5iYWhtZWRrYW1lbC5jb20iLCJ1c2VybmFtZSI6ImFkbWluIiwiaXNzIjoiaHR0cHM6XC9cL3d3dy5iYWhtZWRrYW1lbC5jb20ifQ.wsmPmRBnO4FKlRuKo_wBZOpfkBaB-1KAxtG70UET64o";
+      "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDYwOTgxODEsImV4cCI6MTcwNjEwMTc4MSwiZW1haWwiOiJhZG1pbkBiYWhtZWRrYW1lbC5jb20iLCJpZCI6IjEiLCJzaXRlIjoiaHR0cHM6XC9cL3d3dy5iYWhtZWRrYW1lbC5jb20iLCJ1c2VybmFtZSI6ImFkbWluIiwiaXNzIjoiaHR0cHM6XC9cL3d3dy5iYWhtZWRrYW1lbC5jb20ifQ.yEwZS3TRTPg6rW6t47_VFoW_yFgQJ7I2jGte72mHKO8";
   Future<List<Product>> getProducts() async {
     print('inside productsProvuider');
     List<Product> products = [];
