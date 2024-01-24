@@ -1,4 +1,6 @@
 import 'package:atc/bloc/products/data/productsProvider.dart';
+import 'package:atc/bloc/products/product_bloc/product_bloc.dart';
+import 'package:atc/bloc/products/product_bloc/product_event.dart';
 import 'package:atc/widgets/categories.dart';
 import 'package:atc/widgets/home_app_bar.dart';
 import 'package:atc/widgets/products.dart';
@@ -6,6 +8,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Home extends StatefulWidget {
   Home({super.key});
@@ -15,21 +18,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  ProductsProvider p = ProductsProvider();
-  List<Product> products = [];
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    p.getProducts().then((value) {
-      setState(() {
-        products = value;
-      });
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    context.read<ProductsBloc>().add(GetProductsEvent());
     return Scaffold(
       body: Column(
         children: [
@@ -97,7 +88,7 @@ class _HomeState extends State<Home> {
                               ),
                             ),
                           ),
-                          Products(products: products),
+                          Products(),
                         ],
                       ),
                     ),

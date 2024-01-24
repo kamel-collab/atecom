@@ -9,11 +9,12 @@ class ProductsProvider {
 // depuis un api en utilsant http
 //"bahmedkamel.com", 'wp-json/wc/v3/products'
   static const String token =
-      "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDYwMDc1NDAsImV4cCI6MTcwNjAxMTE0MCwiZW1haWwiOiJhZG1pbkBiYWhtZWRrYW1lbC5jb20iLCJpZCI6IjEiLCJzaXRlIjoiaHR0cHM6XC9cL3d3dy5iYWhtZWRrYW1lbC5jb20iLCJ1c2VybmFtZSI6ImFkbWluIiwiaXNzIjoiaHR0cHM6XC9cL3d3dy5iYWhtZWRrYW1lbC5jb20ifQ.YqsnWuHPVBkm9vNaoMHhuPFe0hU3_kw42_zH69EykLo";
+      "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDYwOTQ0NDksImV4cCI6MTcwNjA5ODA0OSwiZW1haWwiOiJhZG1pbkBiYWhtZWRrYW1lbC5jb20iLCJpZCI6IjEiLCJzaXRlIjoiaHR0cHM6XC9cL3d3dy5iYWhtZWRrYW1lbC5jb20iLCJ1c2VybmFtZSI6ImFkbWluIiwiaXNzIjoiaHR0cHM6XC9cL3d3dy5iYWhtZWRrYW1lbC5jb20ifQ.wsmPmRBnO4FKlRuKo_wBZOpfkBaB-1KAxtG70UET64o";
   Future<List<Product>> getProducts() async {
     print('inside productsProvuider');
     List<Product> products = [];
-    var url = Uri.https("bahmedkamel.com", 'wp-json/wc/v3/products');
+    var url = Uri.https("bahmedkamel.com",
+        'wp-json/wc/v3/products'); // wp-json/wc/v3/products/categories
     Response response = await http.get(
       url,
       headers: {
@@ -41,6 +42,7 @@ class ProductsProvider {
   }
 }
 
+// pour categorie c'est id + name
 class Product {
   late int id;
   late String name;

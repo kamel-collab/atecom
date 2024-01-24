@@ -1,31 +1,48 @@
+import 'package:atc/bloc/products/data/productsProvider.dart';
+import 'package:atc/bloc/products/product_bloc/product_bloc.dart';
+import 'package:atc/bloc/products/product_bloc/product_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Products extends StatefulWidget {
-  Products({required this.products, super.key});
-  List products;
+  Products({super.key});
 
   @override
   State<Products> createState() => _ProductsState();
 }
 
 class _ProductsState extends State<Products> {
+  List<Product> products = [];
+
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-        maxCrossAxisExtent: 200,
-        childAspectRatio: 0.55,
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-      ),
-      physics: const NeverScrollableScrollPhysics(),
-      itemCount: widget.products.length,
-      shrinkWrap: true,
-      itemBuilder: (BuildContext ctx, index) {
-        return item(context, index);
-      },
-    );
+    return BlocBuilder<ProductsBloc, ProductsState>(builder: (context, state) {
+      if (state is LoadingProductsState) {
+        return CircularProgressIndicator();
+      }
+      if (state is SuccessProductsList) {
+        products = state.products;
+        if (products.isEmpty) {
+          print('login please');
+        }
+      }
+
+      return GridView.builder(
+        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent: 200,
+          childAspectRatio: 0.55,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+        ),
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: products.length,
+        shrinkWrap: true,
+        itemBuilder: (BuildContext ctx, index) {
+          return item(context, index);
+        },
+      );
+    });
   }
 
   Container item(BuildContext context, int index) {
@@ -72,11 +89,11 @@ class _ProductsState extends State<Products> {
           InkWell(
             onTap: () {
               Navigator.pushNamed(context, 'itemPage',
-                  arguments: widget.products[index]);
+                  arguments: products[index]);
             },
             child: Container(
               margin: const EdgeInsets.all(10),
-              child: Image.network(widget.products[index].images[0]['src']),
+              child: Image.network(products[index].images[0]['src']),
               height: 120,
               width: 120,
             ),
@@ -85,7 +102,7 @@ class _ProductsState extends State<Products> {
             padding: const EdgeInsets.only(bottom: 8),
             alignment: Alignment.centerLeft,
             child: Text(
-              widget.products[index].name,
+              products[index].name,
               style: TextStyle(
                 fontSize: 18,
                 color: Color(0xFF4C53A5),
@@ -97,7 +114,7 @@ class _ProductsState extends State<Products> {
             padding: const EdgeInsets.only(bottom: 8),
             alignment: Alignment.centerLeft,
             child: Text(
-              widget.products[index].name,
+              products[index].name,
               style: TextStyle(
                 fontSize: 15,
                 color: Color(0xFF4C53A5),
@@ -110,7 +127,7 @@ class _ProductsState extends State<Products> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  widget.products[index].price + " DA",
+                  products[index].price + " DA",
                   style: TextStyle(
                     fontSize: 16,
                     color: Color(0xFF4C53A5),
