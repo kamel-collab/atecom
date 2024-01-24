@@ -1,3 +1,4 @@
+import 'package:atc/bloc/categories/categorie_bloc/categorie_bloc.dart';
 import 'package:atc/bloc/products/product_bloc/product_bloc.dart';
 import 'package:atc/screen/cart_screen.dart';
 import 'package:atc/screen/home.dart';
@@ -11,6 +12,9 @@ void main() {
   runApp(MultiBlocProvider(providers: [
     BlocProvider<ProductsBloc>(
       create: (context) => ProductsBloc(),
+    ),
+    BlocProvider<CategorieBloc>(
+      create: (context) => CategorieBloc(),
     ),
   ], child: const MyApp()));
 }

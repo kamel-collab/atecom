@@ -1,3 +1,5 @@
+import 'package:atc/bloc/categories/categorie_bloc/categorie_bloc.dart';
+import 'package:atc/bloc/categories/categorie_bloc/categorie_event.dart';
 import 'package:atc/bloc/products/data/productsProvider.dart';
 import 'package:atc/bloc/products/product_bloc/product_bloc.dart';
 import 'package:atc/bloc/products/product_bloc/product_event.dart';
@@ -20,7 +22,9 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+    print('je suis dans home');
     context.read<ProductsBloc>().add(GetProductsEvent());
+    context.read<CategorieBloc>().add(GetCatgoriesEvent());
     return Scaffold(
       body: Column(
         children: [
