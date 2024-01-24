@@ -2,6 +2,7 @@ import 'package:atc/bloc/categories/categorie_bloc/categorie_bloc.dart';
 import 'package:atc/bloc/products/product_bloc/product_bloc.dart';
 import 'package:atc/screen/cart_screen.dart';
 import 'package:atc/screen/home.dart';
+import 'package:atc/screen/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => Home(),
         "cartScreen": (context) => CartScreen(),
+        "login": (context) => Login(),
       },
     );
   }

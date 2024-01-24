@@ -24,7 +24,9 @@ class _ProductsState extends State<Products> {
       if (state is SuccessProductsList) {
         products = state.products;
         if (products.isEmpty) {
-          print('login please');
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            Navigator.pushNamed(context, "login");
+          });
         }
       }
 
