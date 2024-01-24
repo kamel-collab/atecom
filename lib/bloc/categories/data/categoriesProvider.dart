@@ -9,7 +9,7 @@ class CategoriesProvider {
 // depuis un api en utilsant http
 //"bahmedkamel.com", 'wp-json/wc/v3/products'
   static const String token =
-      "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDYxMDIyMTQsImV4cCI6MTcwNjEwNTgxNCwiZW1haWwiOiJhZG1pbkBiYWhtZWRrYW1lbC5jb20iLCJpZCI6IjEiLCJzaXRlIjoiaHR0cHM6XC9cL3d3dy5iYWhtZWRrYW1lbC5jb20iLCJ1c2VybmFtZSI6ImFkbWluIiwiaXNzIjoiaHR0cHM6XC9cL3d3dy5iYWhtZWRrYW1lbC5jb20ifQ.XxRb14NUoWDMAlWZ3Y_dxV9yEl8bffIP1uZuWHqI97k";
+      "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDYxMDM3NzcsImV4cCI6MTcwNjEwNzM3NywiZW1haWwiOiJhZG1pbkBiYWhtZWRrYW1lbC5jb20iLCJpZCI6IjEiLCJzaXRlIjoiaHR0cHM6XC9cL3d3dy5iYWhtZWRrYW1lbC5jb20iLCJ1c2VybmFtZSI6ImFkbWluIiwiaXNzIjoiaHR0cHM6XC9cL3d3dy5iYWhtZWRrYW1lbC5jb20ifQ.btAYnDuclis7oVnJALtQfslaF1llIg2klAhNicjIvVw";
   Future<List<Categorie>> getCategories() async {
     print('inside productsProvuider');
     List<Categorie> categories = [];
