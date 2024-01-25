@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Products extends StatefulWidget {
-  Products({super.key});
-
+  Products({required this.isLogin, super.key});
+  final bool isLogin;
   @override
   State<Products> createState() => _ProductsState();
 }
@@ -23,7 +23,7 @@ class _ProductsState extends State<Products> {
       }
       if (state is SuccessProductsList) {
         products = state.products;
-        if (products.isEmpty) {
+        if (products.isEmpty && widget.isLogin == false) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
             Navigator.pushNamed(context, "login");
           });

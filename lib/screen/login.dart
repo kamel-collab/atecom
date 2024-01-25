@@ -1,4 +1,6 @@
+import 'package:atc/bloc/login_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -70,8 +72,12 @@ class _LogintState extends State<Login> {
                   child: ElevatedButton(
                     child: const Text('Login'),
                     onPressed: () {
-                      //print(nameController.text);
-                      //print(passwordController.text);
+                      LoginController()
+                          .login(nameController.text, passwordController.text)
+                          .then((value) {
+                        Navigator.pushNamed(context, "/",
+                            arguments: {'isLogin': true});
+                      });
                     },
                   )),
               Row(
@@ -83,9 +89,10 @@ class _LogintState extends State<Login> {
                       style: TextStyle(fontSize: 20),
                     ),
                     onPressed: () {
-                      //signup screen
+                      final mybox = Hive.box('myBox');
+                      print(mybox.get('nom'));
                     },
-                  )
+                  ),
                 ],
                 mainAxisAlignment: MainAxisAlignment.center,
               ),

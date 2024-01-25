@@ -22,6 +22,9 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+    final arguments = (ModalRoute.of(context)?.settings.arguments ??
+        <bool, dynamic>{}) as Map;
+    bool isLogin = arguments['isLogin'] ?? false;
     print('je suis dans home');
     context.read<ProductsBloc>().add(GetProductsEvent());
     context.read<CategorieBloc>().add(GetCatgoriesEvent());
@@ -92,7 +95,7 @@ class _HomeState extends State<Home> {
                               ),
                             ),
                           ),
-                          Products(),
+                          Products(isLogin: isLogin),
                         ],
                       ),
                     ),

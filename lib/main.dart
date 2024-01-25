@@ -6,11 +6,14 @@ import 'package:atc/screen/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 //https://www.bahmedkamel.com/?rest_route=/simple-jwt-login/v1/auth&username=admin&password=pass@pass
-void main() {
+void main() async {
   SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+  await Hive.initFlutter();
+  var box = await Hive.openBox('myBox');
   runApp(MultiBlocProvider(providers: [
     BlocProvider<ProductsBloc>(
       create: (context) => ProductsBloc(),

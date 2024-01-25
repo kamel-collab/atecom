@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
@@ -8,9 +9,11 @@ class ProductsProvider {
 //elle retourne une list de Product
 // depuis un api en utilsant http
 //"bahmedkamel.com", 'wp-json/wc/v3/products'
-  static const String token =
-      "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDYwOTgxODEsImV4cCI6MTcwNjEwMTc4MSwiZW1haWwiOiJhZG1pbkBiYWhtZWRrYW1lbC5jb20iLCJpZCI6IjEiLCJzaXRlIjoiaHR0cHM6XC9cL3d3dy5iYWhtZWRrYW1lbC5jb20iLCJ1c2VybmFtZSI6ImFkbWluIiwiaXNzIjoiaHR0cHM6XC9cL3d3dy5iYWhtZWRrYW1lbC5jb20ifQ.yEwZS3TRTPg6rW6t47_VFoW_yFgQJ7I2jGte72mHKO8";
+
   Future<List<Product>> getProducts() async {
+    final mybox = Hive.box('myBox');
+    //mybox.delete('token');
+    final token = await mybox.get('token');
     print('inside productsProvuider');
     List<Product> products = [];
     var url = Uri.https("bahmedkamel.com",
