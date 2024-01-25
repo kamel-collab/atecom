@@ -1,7 +1,10 @@
 import 'package:atc/bloc/categories/categorie_bloc/categorie_bloc.dart';
 import 'package:atc/bloc/products/product_bloc/product_bloc.dart';
-import 'package:atc/screen/cart_screen.dart';
+import 'package:atc/screen/add_categorie.dart';
+import 'package:atc/screen/cart.dart';
+
 import 'package:atc/screen/home.dart';
+import 'package:atc/screen/item_page.dart';
 import 'package:atc/screen/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -37,9 +40,12 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         "/": (context) => Home(),
-        "cartScreen": (context) => CartScreen(),
         "login": (context) => Login(),
+        "cart": (context) => CartPage(),
+        "itemPage": (context) => ItemPage(),
+        "addcat": (context) => AddCat()
       },
     );
   }
 }
+//admin pass@pass

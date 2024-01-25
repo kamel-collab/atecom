@@ -91,7 +91,7 @@ class _ProductsState extends State<Products> {
           InkWell(
             onTap: () {
               Navigator.pushNamed(context, 'itemPage',
-                  arguments: products[index]);
+                  arguments: {'product': products[index]});
             },
             child: Container(
               margin: const EdgeInsets.all(10),

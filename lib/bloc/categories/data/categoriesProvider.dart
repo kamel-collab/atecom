@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
@@ -8,9 +9,11 @@ class CategoriesProvider {
 //elle retourne une list de Product
 // depuis un api en utilsant http
 //"bahmedkamel.com", 'wp-json/wc/v3/products'
-  static const String token =
-      "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDYxMDM3NzcsImV4cCI6MTcwNjEwNzM3NywiZW1haWwiOiJhZG1pbkBiYWhtZWRrYW1lbC5jb20iLCJpZCI6IjEiLCJzaXRlIjoiaHR0cHM6XC9cL3d3dy5iYWhtZWRrYW1lbC5jb20iLCJ1c2VybmFtZSI6ImFkbWluIiwiaXNzIjoiaHR0cHM6XC9cL3d3dy5iYWhtZWRrYW1lbC5jb20ifQ.btAYnDuclis7oVnJALtQfslaF1llIg2klAhNicjIvVw";
+
   Future<List<Categorie>> getCategories() async {
+    final mybox = Hive.box('myBox');
+    //mybox.delete('token');
+    final token = await mybox.get('token');
     print('inside productsProvuider');
     List<Categorie> categories = [];
     var url = Uri.https("bahmedkamel.com",
@@ -38,6 +41,30 @@ class CategoriesProvider {
       print(response.statusCode);
 
       return [];
+    }
+  }
+
+  Future<bool> postCategorie({required String name}) async {
+    final mybox = Hive.box('myBox');
+    //mybox.delete('token');
+    final token = await mybox.get('token');
+    var url = Uri.https("bahmedkamel.com", 'wp-json/wc/v3/products/categories');
+    Response response = await http.post(url,
+        headers: {
+          "Content-Type": "application/json",
+          'Authorization': 'Bearer ' + token,
+        },
+        body: jsonEncode({
+          "name": name,
+        })
+        // encoding: Encoding.getByName("utf-8"),
+        );
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      return true;
+    } else {
+      //print(response.statusCode);
+
+      return false;
     }
   }
 }

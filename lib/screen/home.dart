@@ -116,7 +116,7 @@ class _HomeState extends State<Home> {
       backgroundColor: Colors.transparent,
       color: const Color(0xFF4C53A5),
       height: 70,
-      items: const [
+      items: [
         Icon(
           Icons.home,
           size: 30,
@@ -127,10 +127,15 @@ class _HomeState extends State<Home> {
           size: 30,
           color: Colors.white,
         ),
-        Icon(
-          Icons.list,
-          size: 30,
-          color: Colors.white,
+        InkWell(
+          onTap: () {
+            Navigator.pushNamed(context, "addcat");
+          },
+          child: Icon(
+            Icons.list,
+            size: 30,
+            color: Colors.white,
+          ),
         ),
       ],
     );

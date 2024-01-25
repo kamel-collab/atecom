@@ -10,3 +10,7 @@ class SuccessCategoriesList extends CategoriesState {
   List<Categorie> categories;
   SuccessCategoriesList(this.categories);
 }
+
+class AddCatSuccess extends CategoriesState {}
+
+class addFailure extends CategoriesState {}

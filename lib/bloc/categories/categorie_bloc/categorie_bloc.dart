@@ -9,6 +9,7 @@ class CategorieBloc extends Bloc<CategorieEvent, CategoriesState> {
   CategorieBloc() : super(InitialState()) {
     //on event do function
     on<GetCatgoriesEvent>(getCategorieList);
+    on<AddCategorieEvent>(addCategorie);
   }
 
   FutureOr<void> getCategorieList(
@@ -20,5 +21,16 @@ class CategorieBloc extends Bloc<CategorieEvent, CategoriesState> {
     List<Categorie> categories = await CategoriesProvider().getCategories();
     //si tout est ok alors stp envoi success sinon envoi falur
     emit(SuccessCategoriesList(categories));
+  }
+
+  FutureOr<void> addCategorie(
+      AddCategorieEvent event, Emitter<CategoriesState> emit) async {
+    emit(LoadingCategoriesState());
+    bool postedCat = await CategoriesProvider().postCategorie(name: event.name);
+    if (postedCat) {
+      emit(AddCatSuccess());
+    } else {
+      emit(addFailure());
+    }
   }
 }

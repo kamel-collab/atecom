@@ -9,7 +9,7 @@ class ProductsProvider {
 //elle retourne une list de Product
 // depuis un api en utilsant http
 //"bahmedkamel.com", 'wp-json/wc/v3/products'
-
+// username = admin pwd=pass@pass
   Future<List<Product>> getProducts() async {
     final mybox = Hive.box('myBox');
     //mybox.delete('token');
